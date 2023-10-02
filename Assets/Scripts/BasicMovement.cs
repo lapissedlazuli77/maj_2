@@ -16,10 +16,16 @@ public class BasicMovement : MonoBehaviour
     public WallDetector rightcollider;
     public WallDetector downcollider;
 
+    public string whichshooter;
+    public Shooty upshooter;
+    public Shooty leftshooter;
+    public Shooty rightshooter;
+    public Shooty downshooter;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        whichshooter = "up";
     }
 
     // Update is called once per frame
@@ -40,22 +46,34 @@ public class BasicMovement : MonoBehaviour
         if (Input.GetKeyDown("w") && upcollider.collided == false)
         {
             ismoving = true;
+            whichshooter = "up";
             newpos = currentpos + new Vector2(0, 1);
         }
         if (Input.GetKeyDown("s") && downcollider.collided == false)
         {
             ismoving = true;
+            whichshooter = "down";
             newpos = currentpos + new Vector2(0, -1);
         }
         if (Input.GetKeyDown("a") && leftcollider.collided == false)
         {
             ismoving = true;
+            whichshooter = "left";
             newpos = currentpos + new Vector2(-1, 0);
         }
         if (Input.GetKeyDown("d") && rightcollider.collided == false)
         {
             ismoving = true;
+            whichshooter = "right";
             newpos = currentpos + new Vector2(1, 0);
+        }
+
+        if (Input.GetKeyDown("space"))
+        {
+            if (whichshooter == "up") { upshooter.Fire(); }
+            else if (whichshooter == "left") { leftshooter.Fire(); }
+            else if (whichshooter == "right") { rightshooter.Fire(); }
+            else if (whichshooter == "down") { downshooter.Fire(); }
         }
     }
 }

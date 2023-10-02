@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Deathfog : MonoBehaviour
 {
+    public float speed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +15,8 @@ public class Deathfog : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Vector3 currentPosition = transform.position;
+        currentPosition.y += speed;
+        transform.position = currentPosition;
     }
 }
