@@ -23,6 +23,6 @@ public class Shooty : MonoBehaviour
         Vector3 rotation = transform.rotation.eulerAngles;
         Quaternion quatrot = Quaternion.Euler(rotation.x, rotation.y, rotation.z);
         Projectile proj = (Projectile)Instantiate(projectile, transform.position, quatrot);
-        proj.GetComponent<Rigidbody2D>().AddForce(transform.up * 1);
+        proj.GetComponent<Rigidbody2D>().AddForce(transform.up * 0.1f);
     }
 }
