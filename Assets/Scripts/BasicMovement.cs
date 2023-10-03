@@ -81,11 +81,12 @@ public class BasicMovement : MonoBehaviour
         }
     }
 
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-        //if (collision.gameObject.tag == "Finish")
-        //{
-
-        //}
-    //}
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            Destroy(collision.gameObject);
+            health--;
+        }
+    }
 }
