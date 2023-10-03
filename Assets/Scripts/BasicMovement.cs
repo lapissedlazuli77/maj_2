@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BasicMovement : MonoBehaviour
 {
@@ -34,7 +35,10 @@ public class BasicMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (health <= 0)
+        {
+            SceneManager.LoadScene("Death");
+        }
         if (ismoving)
         {
             Vector2 pos = transform.position;
@@ -88,6 +92,10 @@ public class BasicMovement : MonoBehaviour
             Destroy(collision.gameObject);
             health--;
         }
+        if (collision.gameObject.tag == "Death")
+        {
+            SceneManager.LoadScene("Death");
+        }
     }
      private void OnTriggerEnter2D(Collider2D collision)
      {
@@ -100,6 +108,10 @@ public class BasicMovement : MonoBehaviour
         {
             Destroy(collision.gameObject);
             health++;
+        }
+        if (collision.tag == "Finish")
+        {
+            SceneManager.LoadScene("Win");
         }
     }
 }

@@ -9,6 +9,7 @@ TagManager:
   - Projectile
   - APowerup
   - HPowerup
+  - Death
   layers:
   - Default
   - TransparentFX

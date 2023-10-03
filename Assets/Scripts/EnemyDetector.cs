@@ -20,14 +20,14 @@ public class EnemyDetector : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Wall")
+        if (collision.tag == "Enemy")
         {
             collided = true;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Wall")
+        if (collision.tag == "Enemy")
         {
             collided = false;
         }

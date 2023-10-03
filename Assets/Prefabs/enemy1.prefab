@@ -103,8 +103,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collider1: {fileID: 7309305900548368895}
   collider2: {fileID: 944615564284126278}
-  collide1: {fileID: 0}
-  collide2: {fileID: 0}
+  collide1: {fileID: 6455679511821937664}
+  collide2: {fileID: 6287930870653990691}
   axis: y
 --- !u!50 &3118088922828279122
 Rigidbody2D:
