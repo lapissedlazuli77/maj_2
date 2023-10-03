@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     float speed;
+    int health;
 
     public WallDetector collider1;
     public WallDetector collider2;
@@ -16,6 +17,7 @@ public class EnemyMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        health = Random.Range(2, 5);
         speed = Random.Range(0.1f, 0.7f);
         
         rBody = GetComponent<Rigidbody2D>();
@@ -36,6 +38,16 @@ public class EnemyMovement : MonoBehaviour
         if (collider1.collided == true || collider2.collided == true)
         {
             rBody.velocity *= -1;
+        }
+        if (health <= 0) { Destroy(gameObject); }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Projectile")
+        {
+            Destroy(collision.gameObject);
+            health--;
         }
     }
 }
