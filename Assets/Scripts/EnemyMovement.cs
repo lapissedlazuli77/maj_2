@@ -10,6 +10,9 @@ public class EnemyMovement : MonoBehaviour
     public WallDetector collider1;
     public WallDetector collider2;
 
+    public EnemyDetector collide1;
+    public EnemyDetector collide2;
+
     Rigidbody2D rBody;
     public string axis;
     float plusorminus;
@@ -36,6 +39,10 @@ public class EnemyMovement : MonoBehaviour
     void Update()
     {
         if (collider1.collided == true || collider2.collided == true)
+        {
+            rBody.velocity *= -1;
+        }
+        if (collide1.collided == true || collide2.collided == true)
         {
             rBody.velocity *= -1;
         }

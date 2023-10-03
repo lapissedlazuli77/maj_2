@@ -89,4 +89,17 @@ public class BasicMovement : MonoBehaviour
             health--;
         }
     }
+     private void OnTriggerEnter2D(Collider2D collision)
+     {
+         if (collision.tag == "APowerup")
+         {
+            Destroy(collision.gameObject);
+            ammo++;
+        }
+        if (collision.tag == "HPowerup")
+        {
+            Destroy(collision.gameObject);
+            health++;
+        }
+    }
 }
