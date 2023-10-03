@@ -9,6 +9,9 @@ public class BasicMovement : MonoBehaviour
     Vector2 currentVelocity;
     bool ismoving = false;
 
+    public int health = 4;
+    public int ammo = 4;
+
     Vector2 newpos = Vector2.zero;
 
     public WallDetector upcollider;
@@ -68,12 +71,13 @@ public class BasicMovement : MonoBehaviour
             newpos = currentpos + new Vector2(1, 0);
         }
 
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown("space") && ammo >= 1)
         {
             if (whichshooter == "up") { upshooter.Fire(); }
             else if (whichshooter == "left") { leftshooter.Fire(); }
             else if (whichshooter == "right") { rightshooter.Fire(); }
             else if (whichshooter == "down") { downshooter.Fire(); }
+            ammo--;
         }
     }
 

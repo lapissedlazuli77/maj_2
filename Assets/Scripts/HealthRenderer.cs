@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class HealthRenderer : MonoBehaviour
 {
+    /* public Icon slot;
+
+    public List<slot> healbar;
+
+    public BasicMovement player;
+
+    int oricount; */
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +21,6 @@ public class HealthRenderer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
